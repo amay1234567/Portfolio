@@ -1,38 +1,156 @@
-.App {
-  text-align: center;
+/* === GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #0a0a0a, #000);
+  color: #fff;
   min-height: 100vh;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 15px rgba(0, 255, 255, 0.2);
+}
+
+.navbar nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #00e0ff;
+  text-shadow: 0 0 10px #00e0ff;
+}
+
+/* === PAGE SECTIONS === */
+section {
+  min-height: 100vh;
+  padding-top: 100px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
+  /* make inline background images visible */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed; /* smooth parallax look */
+  position: relative;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+/* Remove any old background color overrides */
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* dark overlay */
+  z-index: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+section h1, section h2, section h3 {
+  color: #00e0ff;
+  margin-bottom: 15px;
+}
+
+section p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* === ABOUT === */
+.skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.skill-box {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.2);
+  transition: transform 0.3s;
+}
+
+.skill-box:hover {
+  transform: translateY(-8px);
+}
+
+/* === PORTFOLIO === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.portfolio-item {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
+  transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.3);
+}
+
+/* === CONTACT === */
+.contact-links a {
+  color: #00e0ff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-links a:hover {
+  text-shadow: 0 0 10px #00e0ff;
+}
+
+/* === FOOTER === */
+.footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid rgba(0, 224, 255, 0.15);
 }
